@@ -43,13 +43,42 @@ Right-click the `main` folder and select `New > Directory`.  Name the new direct
 
 The updated project structure should appear as shown:
 
-![updated project structure](https://curriculum-content.s3.amazonaws.com/6036/create-webapp-project/updated_project_structure.png)  
+![updated project structure](https://curriculum-content.s3.amazonaws.com/6036-java-mod-5-create-webapp/updated_project_structure.png)  
 
 The `webapp` folder contains a `WEB-INF` folder and a file named `index.jsp`. 
 
-- The `WEB-INF` folder contains a Java web configuration file `web.xml`.
+- The `WEB-INF` folder contains a Java web configuration file `web.xml`. The `web.xml` contents are shown below:  
+  ```xml
+  <!DOCTYPE web-app PUBLIC
+  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+  "http://java.sun.com/dtd/web-app_2_3.dtd" >
+  <web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  </web-app>
+  ```
 - The `index.jsp` file is a **Java Server Pages** file, which looks similar to HTML
-  but allows dynamic content injection into static contents.
+  but allows dynamic content injection into static contents.  The `index.jsp` contents are shown below:
+  ```html
+  <html>
+  <body>
+  <h2>Hi There!</h2>
+  </body>
+  </html>
+  ```
+
+### Troubleshooting
+
+If you have problems creating a project using the Maven webapp archetype, you can create a Java project and then
+add the `webapp` directory, `WEB-INF` directory, `web.xml` file, and `index.jsp` file.
+The file `index.jsp` is in the `webapp` directory, not the `WEB-INF` directory.
+The file `web.xml` is in the `WEB-INF` directory.  Refer to the updated project
+structure from the previous section.
+
+You will also need to edit `pom.xml` to add a packaging element (see final version of `pom.xml` in the next section).
+
+```xml
+ <packaging>war</packaging>
+```
 
 ## Configure pom.xml
 
